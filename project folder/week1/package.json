@@ -1,0 +1,20 @@
+{
+  "name": "server-express-node",
+  "version": "1.0.0",
+  "description": "* This repository is the starting code for module 5 that gives you:\r     - An express server with routes for tv shows and movies\r     - All data is currently \"fake\" - aka not tied to an actual database\r     - A front end held in the `client` folder created with React.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.5",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.1",
+    "uuid": "^3.3.3"
+  }
+}
