@@ -16,10 +16,7 @@ const storeSchema = new Schema ({
         type: Number,
         required: true
     },
-    picture: {
-        type: String,
-    },
-    avaliable: {
+    available: {
         type: Boolean
     }
 })
