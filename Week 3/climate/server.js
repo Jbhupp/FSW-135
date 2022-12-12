@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const issueRoute = require('./routes/issueRouter')
 const userRoute = require('./routes/userRouter')
 const commentRoute = require('./routes/commentRouter')
+const expressJwt = require('express-jwt')
+require('dotenv').config
 
 
 app.use(express.json()) 
@@ -16,9 +18,15 @@ async function main() {
   await mongoose.connect('mongodb://localhost:27017/climate');
 }
 
-app.use('/comments', commentRoute)
-app.use('/users', userRoute)
-app.use('/issues', issueRoute)
+app.use('/api/', expressJwt({
+  secret: process.env.SECRET, 
+  algorithms: ['HS256'], 
+}))
+
+app.use('auth', require('.routes/authRouter'))
+app.use('/api/comments', commentRoute)
+app.use('/api/users', userRoute)
+app.use('/api/issues', issueRoute)
 
 // Error handler
 app.use((err, req, res, next) => {
